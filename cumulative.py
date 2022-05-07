@@ -11,15 +11,18 @@ def cumulative(array, title='Cumulative', xlabel='x axis', ylabel='y axis'):
     cumul = 1 - np.arange(0, len(array))/(len(array))
     ax.set_xscale('log')
     ax.set_yscale('log')
+    ax.set_title(title)
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel(ylabel)
     ax.minorticks_on()
-    ax.scatter(array, cumul, title, xlabel, ylabel, s=150, edgecolor='black', alpha=0.7)
-    return fig.tight_layout(), ax
+    ax.scatter(array, cumul, s=150, edgecolor='black', alpha=0.7)
+    return fig.tight_layout(), ax, cumul, array
 
 
 
 def info_cumulative():
     print('''
-    The cumulativr function plots the survivability in a log-log scale.
+    The cumulative function plots the survivability in a log-log scale.
     It accepts as an input the array to plot the cumulative over.
 
     

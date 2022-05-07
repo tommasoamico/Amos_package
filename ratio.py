@@ -72,7 +72,7 @@ def func(k, dens, densities_plot, dataframe):
     def plotting(ratios, densities, k_list):
         fig, ax = plt.subplots(1,1 , figsize=(15, 10))
         for i, column in enumerate(ratios):
-            ax.scatter(densities, ratios[i,:] , marker='o'  , s=200,  edgecolor='black', alpha=0.7, label=f'k = {k_list[i]}')
+            ax.scatter(densities, ratios[i,:] , marker='o'  , s=200,  edgecolor='black', alpha=0.7, label=f'k = {round(k_list[i],3)}' )
 
             ax.set_xscale('log')
             ax.set_yscale('log')
@@ -94,7 +94,7 @@ def func(k, dens, densities_plot, dataframe):
             ax.set_xticks(densities)
             ax.set_xticklabels(labels=labels)
             ax.legend(shadow=True, framealpha=1, facecolor='aliceblue', edgecolor='black',  prop={'weight':'bold','size':16})
-        return ax
+        return fig, ax
     return ratio(k, dens, dataframe).view(), plotting(tmp, densities_plot, k)
 
 
