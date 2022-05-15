@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def boxplot(y, colors, figsize=(15,10), linewidth=2, color_median='black', linewidth_median = 3, size_props = 12, title = 'boxplot', font_title = 20, xlabel='x_axis', x_font=15, ylabel='y_axis', y_font=15 ):
+def boxplot(y, colors, figsize=(15,10), linewidth=2, color_median='black', linewidth_median = 3, size_props = 12, title = 'boxplot', font_title = 20, xlabel='x_axis', x_font=15, ylabel='y_axis', y_font=15, labels=False, list_labels=[] ):
     
     fig, ax = plt.subplots(1,1,figsize=figsize)
     
@@ -34,10 +34,13 @@ def boxplot(y, colors, figsize=(15,10), linewidth=2, color_median='black', linew
     ax.minorticks_on()
     ax.xaxis.set_tick_params(which='minor', bottom=False , size=10)
     ax.yaxis.set_tick_params(labelsize=14, size=10)
+    ax.set_xticklabels(labels)
 
-           
+    if labels:
+        ax.set_xticklabels(list_labels)
+
     
-    fig.tight_layout()
+    return fig, ax
 
 
 
